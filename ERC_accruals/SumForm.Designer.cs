@@ -31,23 +31,22 @@
             this.CVSResult = new System.Windows.Forms.TextBox();
             this.CVSLable = new System.Windows.Forms.Label();
             this.HVSLable = new System.Windows.Forms.Label();
-            this.EEDayLable = new System.Windows.Forms.Label();
-            this.EENightLable = new System.Windows.Forms.Label();
             this.HVSResult = new System.Windows.Forms.TextBox();
-            this.EEDayResult = new System.Windows.Forms.TextBox();
-            this.EENightResult = new System.Windows.Forms.TextBox();
             this.CommonResult = new System.Windows.Forms.TextBox();
             this.CommonResultLable = new System.Windows.Forms.Label();
             this.EELable = new System.Windows.Forms.Label();
             this.EEResult = new System.Windows.Forms.TextBox();
             this.TurnAgainButton = new System.Windows.Forms.Button();
+            this.ChangeAccurals = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.HVSResultEnergy = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // CVSResult
+            // _CVSResult
             // 
             this.CVSResult.Enabled = false;
             this.CVSResult.Location = new System.Drawing.Point(271, 34);
-            this.CVSResult.Name = "CVSResult";
+            this.CVSResult.Name = "_CVSResult";
             this.CVSResult.Size = new System.Drawing.Size(100, 22);
             this.CVSResult.TabIndex = 0;
             // 
@@ -65,27 +64,9 @@
             this.HVSLable.AutoSize = true;
             this.HVSLable.Location = new System.Drawing.Point(28, 73);
             this.HVSLable.Name = "HVSLable";
-            this.HVSLable.Size = new System.Drawing.Size(127, 16);
+            this.HVSLable.Size = new System.Drawing.Size(186, 16);
             this.HVSLable.TabIndex = 2;
-            this.HVSLable.Text = "Начислено за ГВС";
-            // 
-            // EEDayLable
-            // 
-            this.EEDayLable.AutoSize = true;
-            this.EEDayLable.Location = new System.Drawing.Point(28, 105);
-            this.EEDayLable.Name = "EEDayLable";
-            this.EEDayLable.Size = new System.Drawing.Size(156, 16);
-            this.EEDayLable.TabIndex = 3;
-            this.EEDayLable.Text = "Начислено за ЭЭ день";
-            // 
-            // EENightLable
-            // 
-            this.EENightLable.AutoSize = true;
-            this.EENightLable.Location = new System.Drawing.Point(28, 138);
-            this.EENightLable.Name = "EENightLable";
-            this.EENightLable.Size = new System.Drawing.Size(156, 16);
-            this.EENightLable.TabIndex = 4;
-            this.EENightLable.Text = "Начислено за ЭЭ ночь";
+            this.HVSLable.Text = "Начислено за ГВС (подача)";
             // 
             // HVSResult
             // 
@@ -94,22 +75,6 @@
             this.HVSResult.Name = "HVSResult";
             this.HVSResult.Size = new System.Drawing.Size(100, 22);
             this.HVSResult.TabIndex = 5;
-            // 
-            // EEDayResult
-            // 
-            this.EEDayResult.Enabled = false;
-            this.EEDayResult.Location = new System.Drawing.Point(271, 105);
-            this.EEDayResult.Name = "EEDayResult";
-            this.EEDayResult.Size = new System.Drawing.Size(100, 22);
-            this.EEDayResult.TabIndex = 6;
-            // 
-            // EENightResult
-            // 
-            this.EENightResult.Enabled = false;
-            this.EENightResult.Location = new System.Drawing.Point(271, 135);
-            this.EENightResult.Name = "EENightResult";
-            this.EENightResult.Size = new System.Drawing.Size(100, 22);
-            this.EENightResult.TabIndex = 7;
             // 
             // CommonResult
             // 
@@ -131,7 +96,7 @@
             // EELable
             // 
             this.EELable.AutoSize = true;
-            this.EELable.Location = new System.Drawing.Point(28, 163);
+            this.EELable.Location = new System.Drawing.Point(28, 143);
             this.EELable.Name = "EELable";
             this.EELable.Size = new System.Drawing.Size(122, 16);
             this.EELable.TabIndex = 11;
@@ -141,7 +106,7 @@
             // EEResult
             // 
             this.EEResult.Enabled = false;
-            this.EEResult.Location = new System.Drawing.Point(271, 163);
+            this.EEResult.Location = new System.Drawing.Point(271, 137);
             this.EEResult.Name = "EEResult";
             this.EEResult.Size = new System.Drawing.Size(100, 22);
             this.EEResult.TabIndex = 10;
@@ -157,21 +122,46 @@
             this.TurnAgainButton.UseVisualStyleBackColor = true;
             this.TurnAgainButton.Click += new System.EventHandler(this.TurnAgainButton_Click);
             // 
+            // ChangeAccurals
+            // 
+            this.ChangeAccurals.Location = new System.Drawing.Point(220, 234);
+            this.ChangeAccurals.Name = "ChangeAccurals";
+            this.ChangeAccurals.Size = new System.Drawing.Size(172, 42);
+            this.ChangeAccurals.TabIndex = 13;
+            this.ChangeAccurals.Text = "Изменить текущие показатели";
+            this.ChangeAccurals.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(184, 16);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Начислено за ГВС (нагрев)";
+            // 
+            // HVSResultEnergy
+            // 
+            this.HVSResultEnergy.Enabled = false;
+            this.HVSResultEnergy.Location = new System.Drawing.Point(271, 102);
+            this.HVSResultEnergy.Name = "HVSResultEnergy";
+            this.HVSResultEnergy.Size = new System.Drawing.Size(100, 22);
+            this.HVSResultEnergy.TabIndex = 15;
+            // 
             // SumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 297);
+            this.Controls.Add(this.HVSResultEnergy);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ChangeAccurals);
             this.Controls.Add(this.TurnAgainButton);
             this.Controls.Add(this.EELable);
             this.Controls.Add(this.EEResult);
             this.Controls.Add(this.CommonResultLable);
             this.Controls.Add(this.CommonResult);
-            this.Controls.Add(this.EENightResult);
-            this.Controls.Add(this.EEDayResult);
             this.Controls.Add(this.HVSResult);
-            this.Controls.Add(this.EENightLable);
-            this.Controls.Add(this.EEDayLable);
             this.Controls.Add(this.HVSLable);
             this.Controls.Add(this.CVSLable);
             this.Controls.Add(this.CVSResult);
@@ -187,15 +177,14 @@
         private System.Windows.Forms.TextBox CVSResult;
         private System.Windows.Forms.Label CVSLable;
         private System.Windows.Forms.Label HVSLable;
-        private System.Windows.Forms.Label EEDayLable;
-        private System.Windows.Forms.Label EENightLable;
         private System.Windows.Forms.TextBox HVSResult;
-        private System.Windows.Forms.TextBox EEDayResult;
-        private System.Windows.Forms.TextBox EENightResult;
         private System.Windows.Forms.TextBox CommonResult;
         private System.Windows.Forms.Label CommonResultLable;
         private System.Windows.Forms.Label EELable;
         private System.Windows.Forms.TextBox EEResult;
         private System.Windows.Forms.Button TurnAgainButton;
+        private System.Windows.Forms.Button ChangeAccurals;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox HVSResultEnergy;
     }
 }

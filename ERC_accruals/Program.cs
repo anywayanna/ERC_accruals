@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ERC_accruals
 {
-    internal static class Program
+    internal class Program
     {
         /// <summary>
         /// Главная точка входа для приложения.
@@ -18,7 +18,6 @@ namespace ERC_accruals
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new InitialForm());
 
-            //RateDataBase
         }
 
     }

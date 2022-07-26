@@ -37,6 +37,12 @@
             this.EEDay = new System.Windows.Forms.TextBox();
             this.EENight = new System.Windows.Forms.TextBox();
             this.ConfirmSecondForm = new System.Windows.Forms.Button();
+            this.labelPreviousCVS = new System.Windows.Forms.Label();
+            this.previousCVS = new System.Windows.Forms.TextBox();
+            this.labelPreviousValues = new System.Windows.Forms.Label();
+            this.previousHVS = new System.Windows.Forms.TextBox();
+            this.previousEEDay = new System.Windows.Forms.TextBox();
+            this.previousEENight = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // CVS
@@ -44,7 +50,7 @@
             this.CVS.Enabled = false;
             this.CVS.Location = new System.Drawing.Point(12, 49);
             this.CVS.Name = "CVS";
-            this.CVS.Size = new System.Drawing.Size(485, 22);
+            this.CVS.Size = new System.Drawing.Size(277, 22);
             this.CVS.TabIndex = 0;
             // 
             // labelCVS
@@ -88,7 +94,7 @@
             this.HVS.Enabled = false;
             this.HVS.Location = new System.Drawing.Point(12, 104);
             this.HVS.Name = "HVS";
-            this.HVS.Size = new System.Drawing.Size(485, 22);
+            this.HVS.Size = new System.Drawing.Size(277, 22);
             this.HVS.TabIndex = 5;
             // 
             // EEDay
@@ -96,7 +102,7 @@
             this.EEDay.Enabled = false;
             this.EEDay.Location = new System.Drawing.Point(12, 161);
             this.EEDay.Name = "EEDay";
-            this.EEDay.Size = new System.Drawing.Size(485, 22);
+            this.EEDay.Size = new System.Drawing.Size(277, 22);
             this.EEDay.TabIndex = 6;
             // 
             // EENight
@@ -104,7 +110,7 @@
             this.EENight.Enabled = false;
             this.EENight.Location = new System.Drawing.Point(12, 217);
             this.EENight.Name = "EENight";
-            this.EENight.Size = new System.Drawing.Size(485, 22);
+            this.EENight.Size = new System.Drawing.Size(277, 22);
             this.EENight.TabIndex = 7;
             // 
             // ConfirmSecondForm
@@ -117,11 +123,66 @@
             this.ConfirmSecondForm.UseVisualStyleBackColor = true;
             this.ConfirmSecondForm.Click += new System.EventHandler(this.ConfirmSecondForm_Click);
             // 
+            // labelPreviousCVS
+            // 
+            this.labelPreviousCVS.AutoSize = true;
+            this.labelPreviousCVS.Location = new System.Drawing.Point(503, 30);
+            this.labelPreviousCVS.Name = "labelPreviousCVS";
+            this.labelPreviousCVS.Size = new System.Drawing.Size(0, 16);
+            this.labelPreviousCVS.TabIndex = 10;
+            // 
+            // previousCVS
+            // 
+            this.previousCVS.Enabled = false;
+            this.previousCVS.Location = new System.Drawing.Point(308, 49);
+            this.previousCVS.Name = "previousCVS";
+            this.previousCVS.Size = new System.Drawing.Size(173, 22);
+            this.previousCVS.TabIndex = 9;
+            // 
+            // labelPreviousValues
+            // 
+            this.labelPreviousValues.AutoSize = true;
+            this.labelPreviousValues.Location = new System.Drawing.Point(305, 30);
+            this.labelPreviousValues.Name = "labelPreviousValues";
+            this.labelPreviousValues.Size = new System.Drawing.Size(198, 16);
+            this.labelPreviousValues.TabIndex = 12;
+            this.labelPreviousValues.Text = "Показания прошлого месяца:";
+            // 
+            // previousHVS
+            // 
+            this.previousHVS.Enabled = false;
+            this.previousHVS.Location = new System.Drawing.Point(308, 104);
+            this.previousHVS.Name = "previousHVS";
+            this.previousHVS.Size = new System.Drawing.Size(173, 22);
+            this.previousHVS.TabIndex = 11;
+            // 
+            // previousEEDay
+            // 
+            this.previousEEDay.Enabled = false;
+            this.previousEEDay.Location = new System.Drawing.Point(308, 161);
+            this.previousEEDay.Name = "previousEEDay";
+            this.previousEEDay.Size = new System.Drawing.Size(173, 22);
+            this.previousEEDay.TabIndex = 13;
+            // 
+            // previousEENight
+            // 
+            this.previousEENight.Enabled = false;
+            this.previousEENight.Location = new System.Drawing.Point(308, 217);
+            this.previousEENight.Name = "previousEENight";
+            this.previousEENight.Size = new System.Drawing.Size(173, 22);
+            this.previousEENight.TabIndex = 15;
+            // 
             // AccrualsTakingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 315);
+            this.ClientSize = new System.Drawing.Size(549, 336);
+            this.Controls.Add(this.previousEENight);
+            this.Controls.Add(this.previousEEDay);
+            this.Controls.Add(this.labelPreviousValues);
+            this.Controls.Add(this.previousHVS);
+            this.Controls.Add(this.labelPreviousCVS);
+            this.Controls.Add(this.previousCVS);
             this.Controls.Add(this.ConfirmSecondForm);
             this.Controls.Add(this.EENight);
             this.Controls.Add(this.EEDay);
@@ -148,5 +209,11 @@
         public System.Windows.Forms.TextBox HVS;
         public System.Windows.Forms.TextBox EEDay;
         public System.Windows.Forms.TextBox EENight;
+        private System.Windows.Forms.Label labelPreviousCVS;
+        public System.Windows.Forms.TextBox previousCVS;
+        private System.Windows.Forms.Label labelPreviousValues;
+        public System.Windows.Forms.TextBox previousHVS;
+        public System.Windows.Forms.TextBox previousEEDay;
+        public System.Windows.Forms.TextBox previousEENight;
     }
 }

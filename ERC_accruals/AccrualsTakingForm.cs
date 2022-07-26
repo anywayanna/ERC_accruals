@@ -12,10 +12,13 @@ namespace ERC_accruals
 {
     public partial class AccrualsTakingForm : Form
     {
-        public bool EECondition = false;
-        
-        public AccrualsTakingForm()
+        private Calculate _calculate;
+        private Volumes _volumes;
+
+        public AccrualsTakingForm(Calculate calculate, Volumes volumes)
         {
+            _calculate = calculate;
+            _volumes = volumes;
             InitializeComponent();
             InitialForm initial = (InitialForm)Application.OpenForms["InitialForm"]; //для доступа к открытой форме
 
@@ -24,35 +27,24 @@ namespace ERC_accruals
             Conditions(initial.checkBoxHVS, HVS);
             Conditions(initial.checkBoxEE, EEDay);
             Conditions(initial.checkBoxEE, EENight);
-
-            //запихала в метод ниже:
-            //if (initial.checkBoxCVS.Checked)
-            //    CVS.Enabled = true;
-            //if (initial.checkBoxHVS.Checked)
-            //    HVS.Enabled = true;
-            //if (initial.checkBoxEE.Checked)
-            //{
-            //    EEDay.Enabled = true;
-            //    EENight.Enabled = true;
-            //    EECondition = true;
-            //}
-
-
         }
-        public void Conditions(CheckBox apparatus, TextBox values)
+
+        private void Conditions(CheckBox apparatus, TextBox values)
         {
             if (!apparatus.Checked)
             {
                 values.Enabled = false;
-               // values.Text = "Без прибора учета передача показаний невозможна!";
+                values.Text = "0";
             }
+
             else
                 values.Enabled = true;
         }
 
         private void ConfirmSecondForm_Click(object sender, EventArgs e)
         {
-            var sunnaryForm = new SumForm(CVS.Text, HVS.Text, EEDay.Text, EENight.Text, EECondition);
+            _volumes.Save(CVS.Text, HVS.Text, EEDay.Text, EENight.Text);
+            var sunnaryForm = new SumForm(_calculate);
             sunnaryForm.Show();
             this.Hide();
         }

@@ -10,41 +10,29 @@ using System.Windows.Forms;
 
 namespace ERC_accruals
 {
-
-
     public partial class SumForm : Form
     {
-        public SumForm(string CVSenter, string HVSenter, string EEDayenter, string EENightenter, bool EECondition)
+        private Calculate _calculate;
+        public SumForm(Calculate calculate)
         {
+            _calculate = calculate;
             InitializeComponent();
             
-            CVSResult.Text = Math.Round(Calculate.GetCVSSum(CVSenter),2).ToString();
-            HVSResult.Text = Math.Round(Calculate.GetHVSSum(HVSenter),2).ToString();
-            double EESum;
+            CVSResult.Text = Math.Round(_calculate.GetCVSSum(),2).ToString();
 
-            if (EECondition)
-            {
-                EEDayResult.Text = Math.Round(Calculate.GetEEDaySum(EEDayenter),2).ToString();
-                EENightResult.Text = Math.Round(Calculate.GetEENightSum(EENightenter),2).ToString();
-                EESum = Calculate.GetEENightSum(EENightenter) + Calculate.GetEEDaySum(EEDayenter);
-            }
-            else
-            {
-                EEResult.Text = Math.Round(Calculate.GetEESum(),2).ToString();
-                EEResult.Visible = true;
-                EELable.Visible = true;
-                EESum = Calculate.GetEESum();
-            }
+            HVSResult.Text = Math.Round(_calculate.GetHVSSum(),2).ToString();
+            HVSResultEnergy.Text = Math.Round(_calculate.GetHVSEnergySum(), 2).ToString();
 
+            EEResult.Text = Math.Round(_calculate.GetEESum(), 2).ToString();
 
-            CommonResult.Text = Math.Round(Calculate.GetERCSum(EESum),2).ToString();
-
+            CommonResult.Text = Math.Round(calculate.GetERCSum(),2).ToString();
+            
         }
 
         private void TurnAgainButton_Click(object sender, EventArgs e)
         {
-           
             AccrualsTakingForm accrualsTaking = (AccrualsTakingForm)Application.OpenForms["AccrualsTakingForm"]; //для доступа к открытой форме
+            accrualsTaking.Update();
             accrualsTaking.Show();
         }
     }

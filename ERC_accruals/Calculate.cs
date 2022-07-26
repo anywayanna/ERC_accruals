@@ -8,82 +8,53 @@ namespace ERC_accruals
 {
     public class Calculate 
     {
-        public static double CVSSum;
-        public static double HVSSum;
-        public static double EESum;
-        public static int nPeople;
-        public static double GetCVSSum(string accrual)
+        private int _nPeople;        
+
+        private Volumes _volumes;
+        private Ratebase _ratebase;
+
+        public void Init(Volumes volumes, Ratebase ratebase)
         {
-            double Vcurr;
-            double Vprev = 0;
-            var T = 35.78;
-            var N = 4.85;
+            _volumes = volumes;
+            _ratebase = ratebase;
+        }
+        public void SetPeopleNumber (int number)
+        {
+            _nPeople = number;
+        }
+
+        public double GetCVSSum()
+        {
+            if (_volumes.VolumeCVSCurrent != 0)
+                return (_volumes.VolumeCVSCurrent - _volumes.VolumeCVSPrevious) * _ratebase.RateCVS;
+
+            return _ratebase.NormativCVS * _nPeople * _ratebase.RateCVS; 
+        }
+
+        public double GetHVSSum()
+        {
+            if (_volumes.VolumeHVSCurrent != 0) 
+                return (_volumes.VolumeHVSCurrent - _volumes.VolumeHVSPrevious) * _ratebase.RateHVS;
             
-
-            if (!(accrual == ""))
-            {
-                Vcurr = double.Parse(accrual);
-                CVSSum = (Vcurr - Vprev) * T;
-            }
-            else
-            {
-                Vcurr = 0;
-                CVSSum = N * nPeople * T; 
-            }
-
-            Vprev = Vcurr;
-            return CVSSum; 
+            return _ratebase.NormativHVS * _nPeople * _ratebase.RateHVS;
         }
-        public static double GetHVSSum(string accrual)
+        public double GetHVSEnergySum()
         {
-            double Vcurr;
-            double Vprev = 0;
-            var T = 158.98;
-            var N = 4.01;
-
-            if (!(accrual == ""))
-            {
-                Vcurr = double.Parse(accrual);
-                HVSSum = (Vcurr - Vprev) * T;
-            }
-            else
-            {
-                Vcurr = 0;
-                HVSSum = N * nPeople * T;
-            }
-
-            Vprev = Vcurr;
-            return HVSSum;
-        }
-        public static double GetEEDaySum(string accrual)
-        {
-            double Vcurr=double.Parse(accrual);
-            double Vprev = 0;
-            var T = 4.9;
-           
-            Vprev = Vcurr;
-            return (Vcurr - Vprev) * T; 
-        }
-        public static double GetEENightSum(string accrual)
-        {
-            double Vcurr = double.Parse(accrual);
-            double Vprev = 0;
-            var T = 2.31;
-
-            Vprev = Vcurr;
-            return (Vcurr - Vprev) * T;
-        }
-        public static double GetEESum()
-        {
-            var N = 164;
-            var T = 4.28;
-            return N * nPeople * T;
+            return GetHVSSum() * _ratebase.RateHVSEnergy;
         }
 
-        public static double GetERCSum(double EE)
+        public double GetEESum()
         {
-            
-            return CVSSum + HVSSum + EE;
+            if (_volumes.VolumeEENightCurrent != 0)
+                return ((_volumes.VolumeEEDayCurrent - _volumes.VolumeEEDayCurrent) * _ratebase.RateEEDay) +
+                    ((_volumes.VolumeEENightCurrent - _volumes.VolumeEENightPrevious) * _ratebase.RateEENight);
+            else return _ratebase.NormativEE * _nPeople * _ratebase.RateEE;
+        }
+        
+
+        public double GetERCSum()
+        {
+            return GetCVSSum() + GetHVSSum() + GetHVSEnergySum() + GetEESum();
         }
 
     }
