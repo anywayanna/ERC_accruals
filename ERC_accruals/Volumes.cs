@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ERC_accruals
 {
     public class Volumes
@@ -32,7 +27,14 @@ namespace ERC_accruals
         public double VolumeEENightPrevious => _volumeEENightPrevious;
         public double VolumeEENightCurrent => _volumeEENightCurrent;
 
-
+        public void Reset()
+        {
+            _volumeCVSCurrent = _volumeCVSPrevious;
+            _volumeHVSCurrent = _volumeHVSPrevious;
+            _volumeEEDayCurrent = _volumeEEDayPrevious;
+            _volumeEENightCurrent = _volumeEENightPrevious;
+        }
+    
         public void Save(string CVS, string HVS, string EEDay, string EENight)
         {
             _volumeCVSPrevious = _volumeCVSCurrent;
@@ -41,14 +43,11 @@ namespace ERC_accruals
             _volumeEENightPrevious = _volumeEENightCurrent;
 
             _volumeCVSCurrent = double.Parse(CVS);
-            _volumeHVSPrevious = double.Parse(HVS);
+            _volumeHVSCurrent = double.Parse(HVS);
             _volumeEEDayCurrent = double.Parse(EEDay);
             _volumeEENightCurrent = double.Parse(EENight);
             
         }
-
-       
-        
 
     }
 }

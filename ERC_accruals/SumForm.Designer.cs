@@ -42,11 +42,11 @@
             this.HVSResultEnergy = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // _CVSResult
+            // CVSResult
             // 
             this.CVSResult.Enabled = false;
             this.CVSResult.Location = new System.Drawing.Point(271, 34);
-            this.CVSResult.Name = "_CVSResult";
+            this.CVSResult.Name = "CVSResult";
             this.CVSResult.Size = new System.Drawing.Size(100, 22);
             this.CVSResult.TabIndex = 0;
             // 
@@ -101,7 +101,6 @@
             this.EELable.Size = new System.Drawing.Size(122, 16);
             this.EELable.TabIndex = 11;
             this.EELable.Text = "Начислено за ЭЭ";
-            this.EELable.Visible = false;
             // 
             // EEResult
             // 
@@ -110,7 +109,6 @@
             this.EEResult.Name = "EEResult";
             this.EEResult.Size = new System.Drawing.Size(100, 22);
             this.EEResult.TabIndex = 10;
-            this.EEResult.Visible = false;
             // 
             // TurnAgainButton
             // 
@@ -130,6 +128,7 @@
             this.ChangeAccurals.TabIndex = 13;
             this.ChangeAccurals.Text = "Изменить текущие показатели";
             this.ChangeAccurals.UseVisualStyleBackColor = true;
+            this.ChangeAccurals.Click += new System.EventHandler(this.ChangeAccurals_Click);
             // 
             // label1
             // 

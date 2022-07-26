@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ERC_accruals
@@ -13,9 +6,12 @@ namespace ERC_accruals
     public partial class SumForm : Form
     {
         private Calculate _calculate;
-        public SumForm(Calculate calculate)
+        private Volumes _volumes;
+
+        public SumForm(Calculate calculate, Volumes volumes)
         {
             _calculate = calculate;
+            _volumes = volumes;
             InitializeComponent();
             
             CVSResult.Text = Math.Round(_calculate.GetCVSSum(),2).ToString();
@@ -31,9 +27,17 @@ namespace ERC_accruals
 
         private void TurnAgainButton_Click(object sender, EventArgs e)
         {
-            AccrualsTakingForm accrualsTaking = (AccrualsTakingForm)Application.OpenForms["AccrualsTakingForm"]; //для доступа к открытой форме
-            accrualsTaking.Update();
+            AccrualsTakingForm accrualsTaking = new AccrualsTakingForm(_calculate, _volumes); //запуск новой формы
             accrualsTaking.Show();
+            this.Hide();
+
+        }
+
+        private void ChangeAccurals_Click(object sender, EventArgs e)
+        {
+            AccrualsTakingForm accrualsTaking = (AccrualsTakingForm)Application.OpenForms["AccrualsTakingForm"]; //для доступа к открытой форме
+            accrualsTaking.Show();
+            _volumes.Reset();
         }
     }
 }

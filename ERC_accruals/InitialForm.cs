@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ERC_accruals
@@ -25,6 +18,7 @@ namespace ERC_accruals
             _ratebase = new Ratebase();
             _calculate.Init(_volumes, _ratebase);
             InitializeComponent();
+
         }
 
         private void ConfirmFirstForm_Click(object sender, EventArgs e)
