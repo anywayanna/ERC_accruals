@@ -49,7 +49,7 @@ namespace ERC_accruals
         {
             if (_volumes.VolumeHVSCurrent !=0)
             {
-                _HVSEnergyResult = _volumes.VolumeHVSCurrent * _ratebase.NormativHVSEnergy * _ratebase.RateHVSEnergy;
+                _HVSEnergyResult = (_volumes.VolumeHVSCurrent-_volumes.VolumeHVSPrevious) * _ratebase.NormativHVSEnergy * _ratebase.RateHVSEnergy;
                 return _HVSEnergyResult;
             }
             _HVSEnergyResult = _ratebase.NormativHVSEnergy * _ratebase.RateHVSEnergy * _ratebase.NormativHVS;
@@ -67,12 +67,10 @@ namespace ERC_accruals
             _EEResult = _ratebase.NormativEE * _nPeople * _ratebase.RateEE;
             return _EEResult;
         }
-        
 
         public double GetERCSum()
         {
             return _CVSResult + _HVSResult + _HVSEnergyResult + _EEResult;
         }
-
     }
 }

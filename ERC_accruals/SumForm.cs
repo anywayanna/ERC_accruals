@@ -7,9 +7,11 @@ namespace ERC_accruals
     {
         private Calculate _calculate;
         private Volumes _volumes;
-
-        public SumForm(Calculate calculate, Volumes volumes)
+        private AccrualsTakingForm _accrualsTaking;
+        private InitialForm _initialForm;
+        public SumForm(Calculate calculate, Volumes volumes, AccrualsTakingForm accrualsTaking)
         {
+            _accrualsTaking = accrualsTaking;
             _calculate = calculate;
             _volumes = volumes;
             InitializeComponent();
@@ -27,17 +29,24 @@ namespace ERC_accruals
 
         private void TurnAgainButton_Click(object sender, EventArgs e)
         {
-            AccrualsTakingForm accrualsTaking = new AccrualsTakingForm(_calculate, _volumes); //запуск новой формы
-            accrualsTaking.Show();
+            _volumes.Save();
+            _accrualsTaking = new AccrualsTakingForm(_calculate, _volumes); //запуск новой формы
+            _accrualsTaking.Show();
             this.Hide();
 
         }
 
         private void ChangeAccurals_Click(object sender, EventArgs e)
         {
-            AccrualsTakingForm accrualsTaking = (AccrualsTakingForm)Application.OpenForms["AccrualsTakingForm"]; //для доступа к открытой форме
-            accrualsTaking.Show();
+            //AccrualsTakingForm accrualsTaking = (AccrualsTakingForm)Application.OpenForms["AccrualsTakingForm"]; //для доступа к открытой форме
+            _accrualsTaking.Show();
             _volumes.Reset();
+        }
+
+        private void EndButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
         }
     }
 }

@@ -16,6 +16,5 @@ namespace ERC_accruals
             Application.Run(new InitialForm());
 
         }
-
     }
 }

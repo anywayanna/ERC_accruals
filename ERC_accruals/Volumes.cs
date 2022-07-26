@@ -35,6 +35,13 @@ namespace ERC_accruals
             _volumeEENightCurrent = _volumeEENightPrevious;
         }
     
+        public void Save()
+        {
+            _volumeCVSPrevious = _volumeCVSCurrent;
+            _volumeHVSPrevious = _volumeHVSCurrent;
+            _volumeEEDayPrevious = _volumeEEDayCurrent;
+            _volumeEENightPrevious = _volumeEENightCurrent;
+        }
         public void Save(string CVS, string HVS, string EEDay, string EENight)
         {
             _volumeCVSPrevious = _volumeCVSCurrent;

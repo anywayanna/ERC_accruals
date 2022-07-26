@@ -52,6 +52,7 @@
             this.CVS.Name = "CVS";
             this.CVS.Size = new System.Drawing.Size(277, 22);
             this.CVS.TabIndex = 0;
+            this.CVS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CVS_KeyPress);
             // 
             // labelCVS
             // 
@@ -96,6 +97,7 @@
             this.HVS.Name = "HVS";
             this.HVS.Size = new System.Drawing.Size(277, 22);
             this.HVS.TabIndex = 5;
+            this.HVS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HVS_KeyPress);
             // 
             // EEDay
             // 
@@ -104,6 +106,7 @@
             this.EEDay.Name = "EEDay";
             this.EEDay.Size = new System.Drawing.Size(277, 22);
             this.EEDay.TabIndex = 6;
+            this.EEDay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EEDay_KeyPress);
             // 
             // EENight
             // 
@@ -112,6 +115,7 @@
             this.EENight.Name = "EENight";
             this.EENight.Size = new System.Drawing.Size(277, 22);
             this.EENight.TabIndex = 7;
+            this.EENight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EENight_KeyPress);
             // 
             // ConfirmSecondForm
             // 

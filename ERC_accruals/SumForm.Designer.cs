@@ -40,6 +40,7 @@
             this.ChangeAccurals = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.HVSResultEnergy = new System.Windows.Forms.TextBox();
+            this.EndButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CVSResult
@@ -112,7 +113,7 @@
             // 
             // TurnAgainButton
             // 
-            this.TurnAgainButton.Location = new System.Drawing.Point(31, 234);
+            this.TurnAgainButton.Location = new System.Drawing.Point(12, 234);
             this.TurnAgainButton.Name = "TurnAgainButton";
             this.TurnAgainButton.Size = new System.Drawing.Size(172, 42);
             this.TurnAgainButton.TabIndex = 12;
@@ -122,9 +123,9 @@
             // 
             // ChangeAccurals
             // 
-            this.ChangeAccurals.Location = new System.Drawing.Point(220, 234);
+            this.ChangeAccurals.Location = new System.Drawing.Point(190, 234);
             this.ChangeAccurals.Name = "ChangeAccurals";
-            this.ChangeAccurals.Size = new System.Drawing.Size(172, 42);
+            this.ChangeAccurals.Size = new System.Drawing.Size(160, 42);
             this.ChangeAccurals.TabIndex = 13;
             this.ChangeAccurals.Text = "Изменить текущие показатели";
             this.ChangeAccurals.UseVisualStyleBackColor = true;
@@ -147,11 +148,22 @@
             this.HVSResultEnergy.Size = new System.Drawing.Size(100, 22);
             this.HVSResultEnergy.TabIndex = 15;
             // 
+            // EndButton
+            // 
+            this.EndButton.Location = new System.Drawing.Point(356, 234);
+            this.EndButton.Name = "EndButton";
+            this.EndButton.Size = new System.Drawing.Size(89, 42);
+            this.EndButton.TabIndex = 16;
+            this.EndButton.Text = "Закрыть";
+            this.EndButton.UseVisualStyleBackColor = true;
+            this.EndButton.Click += new System.EventHandler(this.EndButton_Click);
+            // 
             // SumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 297);
+            this.Controls.Add(this.EndButton);
             this.Controls.Add(this.HVSResultEnergy);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ChangeAccurals);
@@ -185,5 +197,6 @@
         private System.Windows.Forms.Button ChangeAccurals;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox HVSResultEnergy;
+        private System.Windows.Forms.Button EndButton;
     }
 }
