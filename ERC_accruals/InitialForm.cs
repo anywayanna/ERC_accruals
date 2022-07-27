@@ -12,13 +12,13 @@ namespace ERC_accruals
 
         public InitialForm()
         {
-            
             _calculate = new Calculate();
             _volumes = new Volumes();
             _ratebase = new Ratebase();
-            _calculate.Init(_volumes, _ratebase);
-            InitializeComponent();
 
+            _calculate.Init(_volumes, _ratebase);
+
+            InitializeComponent();
         }
 
         private void ConfirmFirstForm_Click(object sender, EventArgs e)
@@ -29,8 +29,5 @@ namespace ERC_accruals
             accuralsForm.Show();
             this.Hide();
         }
-
-    
-        
     }
 }

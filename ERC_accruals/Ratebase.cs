@@ -34,6 +34,5 @@ namespace ERC_accruals
         public double RateEEDay => _rateEEDay;
 
         public double RateEENight => _rateEENight;
-
     }
 }

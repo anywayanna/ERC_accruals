@@ -53,7 +53,6 @@ namespace ERC_accruals
             _volumeHVSCurrent = double.Parse(HVS);
             _volumeEEDayCurrent = double.Parse(EEDay);
             _volumeEENightCurrent = double.Parse(EENight);
-            
         }
 
     }

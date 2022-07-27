@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Windows.Forms;
 
 namespace ERC_accruals
@@ -9,7 +8,6 @@ namespace ERC_accruals
         private Calculate _calculate;
         private Volumes _volumes;
         private InitialForm _initialForm;
-
         
         public AccrualsTakingForm(Calculate calculate, Volumes volumes)
         {
@@ -18,17 +16,15 @@ namespace ERC_accruals
             _volumes = volumes;
             InitializeComponent();
 
-            CleanBox(CVS);
-            CleanBox(HVS);
-            CleanBox(EEDay);
-            CleanBox(EENight);
+            CVS.Clear();
+            HVS.Clear();
+            EEDay.Clear();
+            EENight.Clear();
 
             previousCVS.Text = _volumes.VolumeCVSPrevious.ToString();
             previousHVS.Text = _volumes.VolumeHVSPrevious.ToString();
             previousEEDay.Text = _volumes.VolumeEEDayPrevious.ToString();
             previousEENight.Text = _volumes.VolumeEENightPrevious.ToString();
-
-            //InitialForm initial = (InitialForm)Application.OpenForms["InitialForm"]; 
 
             //для проверки приборов учета
             OnAndOffInput(_initialForm.checkBoxCVS, CVS);
@@ -36,7 +32,6 @@ namespace ERC_accruals
             OnAndOffInput(_initialForm.checkBoxEE, EEDay);
             OnAndOffInput(_initialForm.checkBoxEE, EENight);
         }
-       
 
         private bool CheckAccruals(string current, string previous)
         {
@@ -53,29 +48,31 @@ namespace ERC_accruals
             else
                 values.Enabled = true;
         }
-        private void CleanBox(TextBox textBox)
-        {
-            textBox.Text = "";
-        }
+        
         private void ConfirmSecondForm_Click(object sender, EventArgs e)
         {
             if (_initialForm.checkBoxCVS.Checked)
-            {
+            
                 if (!CheckAccruals(CVS.Text, previousCVS.Text))
+                {
                     MessageBox.Show("Текущие показатели должны быть больше прошлого месяца!");
-            }
-            else if (_initialForm.checkBoxHVS.Checked)
-            {
-                if (!CheckAccruals(HVS.Text, previousHVS.Text))
-                    MessageBox.Show("Текущие показатели должны быть больше прошлого месяца!");
-            }
-            else if (_initialForm.checkBoxEE.Checked)
-            {
-                if (!CheckAccruals(EEDay.Text, previousEEDay.Text) || !CheckAccruals(EENight.Text, previousEENight.Text))
-                    MessageBox.Show("Текущие показатели должны быть больше прошлого месяца!");
-            }
+                    return;
+                }
+            if (_initialForm.checkBoxHVS.Checked)
 
-            else if ((CVS.Text == "" || HVS.Text == "" || EEDay.Text == "" || EENight.Text == ""))
+                if (!CheckAccruals(HVS.Text, previousHVS.Text))
+                {
+                    MessageBox.Show("Текущие показатели должны быть больше прошлого месяца!");
+                    return;
+                }
+            if (_initialForm.checkBoxEE.Checked)
+
+                if (!CheckAccruals(EEDay.Text, previousEEDay.Text) || !CheckAccruals(EENight.Text, previousEENight.Text))
+                {
+                    MessageBox.Show("Текущие показатели должны быть больше прошлого месяца!");
+                    return;
+                }
+            if (CVS.Text == "" || HVS.Text == "" || EEDay.Text == "" || EENight.Text == "")
                 MessageBox.Show("Заполните поля показателей!");
             else
             {

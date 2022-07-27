@@ -13,7 +13,6 @@ namespace ERC_accruals
         private double _HVSEnergyResult;
         private double _EEResult;
 
-
         public void Init(Volumes volumes, Ratebase ratebase)
         {
             _volumes = volumes;
